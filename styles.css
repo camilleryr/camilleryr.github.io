@@ -8,27 +8,27 @@
     width: 80%;
 }
 
-#pageHeader {
+.pageHeader {
     font-size: 7em;
     padding-bottom: 5px;
 }
 
-#pageHeader,
-#topNav,
-#mainContent {
+.pageHeader,
+.topNav,
+.mainContent {
     border-bottom: 2px solid #335766;
 }
 
-#pageHeader,
-#topNav ul li a, 
+.pageHeader,
+.topNav ul li a, 
 #copyright {
     text-decoration: none;
     font-family: Poiret, sans-serif;
     color: #335766;
 }
 
-#pageHeader,
-#topNav ul li a {
+.pageHeader,
+.topNav ul li a {
     text-align: center;
 }
 
@@ -37,18 +37,17 @@
     margin: 15px 40%;
 }
 
-#topNav {
+.topNav {
     text-align: center;
     margin-top: 0px;
 }
 
-#topNav ul {
-    padding: auto;
+.topNav ul {
     position: relative;
     display: inline-block;
 }
 
-#topNav ul li {
+.topNav ul li {
     display: inline-block;
     font-size: 1.2em;
     width : 110px;
@@ -56,13 +55,9 @@
     text-align: center;
 }
 
-#topNav a:hover {
+.topNav a:hover {
     border: 1px solid #335766;
     border-radius: 3px;
-}
-
-#mainContent {
-    width: 80%;
 }
 
 #smallLogo {
@@ -74,3 +69,36 @@
     float:right;
 }
 
+.map {
+    width: 100%;
+}
+
+.contact_icon {
+    width: 70px;
+    border: 3px solid #335766;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.mainContent {
+    text-align: center;
+}
+
+.contact {
+    margin-top: 20px;
+}
+.contact h2 {
+    font-size: 3em;
+    display: inline;
+    vertical-align: 50%;
+    font-family: Poiret, sans-serif;
+}
+
+#address_icon {
+    display: block;
+    margin: auto;
+}
+
+.contact a:hover {
+    background-color: lightgray;
+}
