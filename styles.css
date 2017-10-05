@@ -1,8 +1,77 @@
-.article {
-    border: 1px solid #ffdead;
-    color: orange;
+@font-face {
+    font-family: Poiret;
+    src: url(/fonts/PoiretOne-Regular.ttf);
 }
 
-#intro {
-    font-size: 3em;
+.block {
+    margin: 0 auto;
+    width: 80%;
 }
+
+#pageHeader {
+    font-size: 7em;
+    padding-bottom: 5px;
+}
+
+#pageHeader,
+#topNav,
+#mainContent {
+    border-bottom: 2px solid #335766;
+}
+
+#pageHeader,
+#topNav ul li a, 
+#copyright {
+    text-decoration: none;
+    font-family: Poiret, sans-serif;
+    color: #335766;
+}
+
+#pageHeader,
+#topNav ul li a {
+    text-align: center;
+}
+
+#logo {
+    width:20%;
+    margin: 15px 40%;
+}
+
+#topNav {
+    height: 60px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+#topNav ul {
+    padding: auto;
+    position: relative;
+    display: inline-block;
+}
+
+#topNav ul li {
+    display: inline-block;
+    font-size: 1.2em;
+    width : 110px;
+    margin : 5px 10px;
+    text-align: center;
+}
+
+#topNav a {
+    margin 5px 10px;
+}
+
+#topNav a:hover {
+    border: 1px solid #335766;
+    border-radius: 3px;
+}
+
+#mainContent {
+    width: 80%;
+    height: 500px;
+}
+
+#copyright {
+    text-align: right;
+}
+
