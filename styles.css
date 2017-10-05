@@ -74,16 +74,19 @@
 }
 
 .contact_icon {
-    width: 70px;
+    width: 50px;
     border: 3px solid #335766;
     border-radius: 50%;
-    padding: 20px;
+    padding: 10px;
 }
 
 .mainContent {
     text-align: center;
 }
 
+#resume {
+    text-align: left;
+}
 .contact {
     margin-top: 20px;
 }
