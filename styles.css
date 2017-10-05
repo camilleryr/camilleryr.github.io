@@ -38,7 +38,6 @@
 }
 
 #topNav {
-    height: 60px;
     text-align: center;
     margin-top: 0px;
 }
@@ -57,10 +56,6 @@
     text-align: center;
 }
 
-#topNav a {
-    margin 5px 10px;
-}
-
 #topNav a:hover {
     border: 1px solid #335766;
     border-radius: 3px;
@@ -71,7 +66,12 @@
     height: 500px;
 }
 
+#smallLogo {
+    height: 30px;
+    margin: 10px 0;
+}
+
 #copyright {
-    text-align: right;
+    float:right;
 }
 
