@@ -1,0 +1,107 @@
+@font-face {
+    font-family: Poiret;
+    src: url(/fonts/PoiretOne-Regular.ttf);
+}
+
+.block {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.pageHeader {
+    font-size: 7em;
+    padding-bottom: 5px;
+}
+
+.pageHeader,
+.topNav,
+.mainContent {
+    border-bottom: 2px solid #335766;
+}
+
+.pageHeader,
+.topNav ul li a, 
+#copyright {
+    text-decoration: none;
+    font-family: Poiret, sans-serif;
+    color: #335766;
+}
+
+.pageHeader,
+.topNav ul li a {
+    text-align: center;
+}
+
+#logo {
+    width:20%;
+    margin: 15px 40%;
+}
+
+.topNav {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.topNav ul {
+    position: relative;
+    display: inline-block;
+}
+
+.topNav ul li {
+    display: inline-block;
+    font-size: 1.2em;
+    width : 110px;
+    margin : 5px 10px;
+    text-align: center;
+}
+
+.topNav a:hover {
+    border: 1px solid #335766;
+    border-radius: 3px;
+}
+
+#smallLogo {
+    height: 30px;
+    margin: 10px 0;
+}
+
+#copyright {
+    float:right;
+}
+
+.map {
+    width: 100%;
+}
+
+.contact_icon {
+    width: 50px;
+    border: 3px solid #335766;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.mainContent {
+    text-align: center;
+}
+
+#resume {
+    text-align: left;
+}
+.contact {
+    margin-top: 30px;
+}
+.contact h2 {
+    font-size: 2em;
+    display: inline;
+    vertical-align: 50%;
+    font-family: Poiret, sans-serif;
+}
+
+#address_icon {
+    display: block;
+    margin: auto;
+}
+
+.contact a:hover {
+    background-color: lightgray;
+}
