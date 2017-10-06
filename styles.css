@@ -63,6 +63,49 @@ nav a:hover {
     margin: 0 auto;
 }
 
+/* Resume Styling */
+
+/* Contact Styling */
+
+.contact {
+    margin-top:10px;
+    text-align: center;
+}
+
+.contact h2 {
+    display: inline-block;
+    font-size: 2em;
+    vertical-align: top;
+}
+
+.contact_icon {
+    width: 60px;
+    border: 2px solid #4e828d;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+iframe {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.contact a {
+    display: inline-block;
+}
+
+.contact a:hover {
+    background-color: #4e828d;
+    border-radius: 50%;
+}
+
+/* Resume Styling */
+
+#resume ul,
+#resume li {
+    list-style-type: none;
+}
+
 /* Footer Styling */
 .pageWrap {
     min-height: 100%;
