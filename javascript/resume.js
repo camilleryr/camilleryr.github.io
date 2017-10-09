@@ -15,7 +15,7 @@ const job2 = {
 
 const job3 = {
     "dates" : {"start" : 2010, "stop" : 2014},
-    "company": "NSG / LIDS Team Sports],
+    "company": "NSG / LIDS Team Sports",
     "tite": "Machine Operator",
     "responsibilities": ["Operated manual and automatic printing machines", "Translated written instructions into physical production", "Quality Control"]
 }
