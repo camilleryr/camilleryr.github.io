@@ -58,6 +58,10 @@ nav {
 
 .Site-content {
     flex: 1;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+    text-align: justify;
 }
 
 footer {
@@ -91,6 +95,11 @@ footer {
     footer p {
         margin-right: 30px;
     }
+
+    .Site-content {
+        width: 80%;
+        text-align: left;
+    }
 }
 
 @media screen and (min-width: 700px) {
@@ -122,11 +131,4 @@ footer {
         align-items: center;
         /* justify-content: flex-end; */
     }
-
-    /* .navButton {
-        margin: 5px;
-        padding: 10px;
-        height: 20px;
-        width : 80px;
-    } */
 }
