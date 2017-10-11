@@ -91,7 +91,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 860px) {
 
     header {
         display: flex;
