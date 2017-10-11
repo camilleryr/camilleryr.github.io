@@ -1,6 +1,8 @@
+/* Fonts */
+
 @font-face {
     font-family: Poiret;
-    src: url(PoiretOne-Regular.ttf);
+    src: url(/fonts/PoiretOne-Regular.ttf);
 }
 
 body {

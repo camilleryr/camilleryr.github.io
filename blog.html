@@ -1,44 +1,32 @@
-<html>
-    <head>
-        <title>Welcome to my personal site</title>
-        <link href="styles.css" rel="stylesheet">
-    </head>
 
-    <body>
-        <div class="pageWrap">
-            <header>
-                <img id="headerLogo" src="/images/cm_logo.svg" alt="Chris Miller's Logo">
-                <h1>CHRIS MILLER</h1>
-            </header>
+<head>
+    <link href="./css/layout.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="./images/cm_logo.svg">
+        <h1>CHRISTOPHER MILLER</h1>
+        
+        <nav>
+            <div class="navButton"><a href="./index.html" id="homeButton">HOME</a></div>
+            <div class="navButton"><a href="./resume.html" id="resumeButton">RESUME</a></div>
+            <div class="navButton"><a href="./projects.html" id="contentButton">CONTENT</a></div>
+            <div class="navButton"><a href="./blog.html" id="blogButton">BLOG</a></div>
+            <div class="navButton"><a href="./contact.html" id="contactButton">CONTACT</a></div>
+        </nav>
+        
+    </header>
+    <main class="Site-content">
+        <article>
+
+        </article>
+        <article>
             
-            <nav>
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="resume.html">RESUME</a></li>
-                    <li><a href="projects.html">PROJECTS</a></li>
-                    <li><a href="blog.html">BLOG</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
-            </nav>
-            
-            <div class="wrapper">
-                <article>
-                    <h1>This is my first blog post - 10.5.17</h1>
-                    <p>
-                        We are on day 4 of the full-stack software development bootcamp, and so far it is going well.  The material can be confounding at times, but I have been assured that it will fall into place as long as I continue to forge ahead.
-                    </p>
-                </article>
+        </article>
+    </main>
 
-            </div>
-
-        </div>
-
-        <footer>
-            <div class="clearfix" id="footerContent">
-                <div id="copyright">&copy;2017</div>
-            </div>
-        </footer>
-
-        <script src="/javascript/blog.js"></script>
-
-    </body>
+    <footer>
+        <p>&copy Chris Miller 2017</p>
+    </footer>
+</body>
