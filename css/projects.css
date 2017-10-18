@@ -1,3 +1,12 @@
 #projectsButton {
     background-color: #335766;
 }
+
+.projectItem {
+    display: block;
+    padding: 20px;
+    border: solid 2px lightgray;
+    width: 75%;
+    height: 150px;
+    margin: 10px;
+}

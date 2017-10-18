@@ -29,9 +29,11 @@ header h1 {
     margin: 15px 0 10px;
 }
 
-nav {
+nav,
+.javascriptContent {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .navButton {
@@ -77,11 +79,16 @@ footer {
         max-height: 100px;
     }
     
-    nav {
+    nav, 
+    .javascriptContent {
         flex-direction: row;
         /* align-items: flex-start;
         justify-content: center; */
     }
+
+    .javascriptContent {
+        flex-wrap: wrap;
+    }    
     
     .navButton {
         /* justify-content: space-between; */
