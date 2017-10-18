@@ -1,6 +1,8 @@
+/* Fonts */
+
 @font-face {
     font-family: Poiret;
-    src: url(PoiretOne-Regular.ttf);
+    src: url(/fonts/PoiretOne-Regular.ttf);
 }
 
 body {
@@ -27,9 +29,11 @@ header h1 {
     margin: 15px 0 10px;
 }
 
-nav {
+nav,
+.javascriptContent {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .navButton {
@@ -56,6 +60,10 @@ nav {
 
 .Site-content {
     flex: 1;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+    text-align: justify;
 }
 
 footer {
@@ -71,11 +79,16 @@ footer {
         max-height: 100px;
     }
     
-    nav {
+    nav, 
+    .javascriptContent {
         flex-direction: row;
         /* align-items: flex-start;
         justify-content: center; */
     }
+
+    .javascriptContent {
+        flex-wrap: wrap;
+    }    
     
     .navButton {
         /* justify-content: space-between; */
@@ -88,6 +101,11 @@ footer {
     
     footer p {
         margin-right: 30px;
+    }
+
+    .Site-content {
+        width: 80%;
+        text-align: left;
     }
 }
 
@@ -120,11 +138,4 @@ footer {
         align-items: center;
         /* justify-content: flex-end; */
     }
-
-    /* .navButton {
-        margin: 5px;
-        padding: 10px;
-        height: 20px;
-        width : 80px;
-    } */
 }

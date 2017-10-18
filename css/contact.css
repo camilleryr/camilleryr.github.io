@@ -1,0 +1,17 @@
+#contactButton {
+    background-color: #335766;
+}
+#contactContent {
+    /* margin: auto; */
+    text-align: center;
+}
+
+.contactIcon {
+    padding: 10px;
+    background-color: #4e828d;
+    border-radius: 50%;
+}
+
+.contactItem {
+    padding: 20px;
+}
