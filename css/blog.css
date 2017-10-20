@@ -1,3 +1,36 @@
 #blogButton {
     background-color: #335766;
 }
+
+#paginationBar ul {
+    list-style: none;
+}
+
+#paginationBar ul li {
+    display: inline-block;
+}
+
+#paginationBar ul li a {
+    text-decoration: none;
+}
+
+button {
+    padding: 5px 15px;
+    margin: 2px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    border: solid 1px #335766;
+}
+
+button:disabled {
+    background-color: #4e828d;
+    pointer-events: none;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: #335766;
+    color: white;
+}
