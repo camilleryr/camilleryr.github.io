@@ -1,7 +1,7 @@
 // inital delclarations
 
 // pulling blogDatabase from local storage
-let blogDatabaseParse = JSON.parse(localStorage.getItem("blogDatabaseStored"))
+let blogDatabaseParse = JSON.parse(localStorage.getItem("blogDatabaseStored")).reverse()
 
 // setting inital states
 let currentPage = 1
