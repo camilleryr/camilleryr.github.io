@@ -5,7 +5,7 @@ let blogDatabaseParse = JSON.parse(localStorage.getItem("blogDatabaseStored")).r
 
 // setting inital states
 let currentPage = 1
-let numberOfItems = 2
+let numberOfItems = 3
 let numberOfPages = 0 //this will be set on load
 let paginationBarPosition = 0 //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
 let paginationButtonArray = document.getElementsByClassName("paginationButton")
@@ -30,7 +30,7 @@ const writeBlogs = function() {
         let element = blogsToWrite[i]
         currentPageHTML += `
         <div class="card">
-        <h1>${element.title}</h1>
+        <h1>${element.id} : ${element.title}</h1>
         <h2>${element.content}</h2>
         <div id="blog${i}tags"></div>
         <h4>${element.author} - ${element.dateOfPublication}</h4>
@@ -52,6 +52,9 @@ const writePaginationBar = function() {
     //Keep current page button as the middle button unless it is one of the first or last two pages
 
     switch (true) {
+        case (numberOfPages <= 5):
+            paginationBarPosition = 0
+            break
         case (currentPage <= 3):
             paginationBarPosition = 0
             break
@@ -103,12 +106,9 @@ const setPaginationBarStatus = function () {
         paginationButtonArray[index].disabled = parseInt(paginationButtonArray[index].innerHTML) === currentPage ? true : false
     }
 
-    document.getElementsByClassName("backButton")[0].disabled = currentPage === 1 ? true : false
+    Array.from(document.getElementsByClassName("backButton")).map(x => x.style.visibility = currentPage === 1 ? "hidden" : "visable")
     
-    document.getElementsByClassName("backButton")[1].disabled = currentPage === 1 ? true : false
-    
-    document.getElementsByClassName("forwardButton")[0].disabled = currentPage === numberOfPages ? true : false
-    document.getElementsByClassName("forwardButton")[1].disabled = currentPage === numberOfPages ? true : false
+    Array.from(document.getElementsByClassName("forwardButton")).map(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visable")
 }
 
 const changePageNumber = function (event) {
