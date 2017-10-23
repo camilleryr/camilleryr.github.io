@@ -11,7 +11,6 @@ let paginationBarPosition = 0 //use this number to increment pagination bar (1-5
 let paginationButtonArray = document.getElementsByClassName("paginationButton")
 
 // sets number of pages and writes first page
-
 const blogInit = function() {
     numberOfPages = Math.ceil(blogDatabaseParse.length / numberOfItems)
 
@@ -26,22 +25,32 @@ const writeBlogs = function() {
     let currentPageHTML = ""
     
     // Iterates over slice and ammends it to variable 
-    for (let i = 0; i < blogsToWrite.length; i++) {
-        let element = blogsToWrite[i]
+   
+    blogsToWrite.forEach (element => {
+        let blogTags = ``
+
+        //Create spans for each tag to be injected into the HTML string oe each individual blog
+        element.tags.forEach(tags => {
+            blogTags += `
+            <span class="tags">${tags}</span>
+            `
+        })
+        
+        //Create HTML string for each individual blog
         currentPageHTML += `
         <div class="card">
         <h1>${element.id} : ${element.title}</h1>
         <h2>${element.content}</h2>
-        <div id="blog${i}tags"></div>
+        <div id="blogTags">${blogTags}</div>
         <h4>${element.author} - ${element.dateOfPublication}</h4>
         </div>
         `
-    }
+    })
     
     // Write blogs to HTML
     document.getElementById("blogContent").innerHTML = currentPageHTML
     
-    //function to check pagination bar
+    //functions to check/write/add eventListeners to pagination bar
     writePaginationBar()
     setPaginationBarStatus()
     writeEventListeners()
@@ -71,14 +80,13 @@ const writePaginationBar = function() {
 
     //ammends variable with first and previous buttons
     paginationBarHTML += `
-    
         <button class = "backButton paginationButton" id="first">&lt;&lt;</button>
         <button class = "backButton paginationButton" id="previous">&lt;</button>
     `
 
     // write buttons for each page, but will not exceed 5
-    for (let index = 0; index < numberOfPages; index++) {
-        let ordinalPosition = index+1
+    for (let ordinalPosition = 1; ordinalPosition <= numberOfPages; ordinalPosition++) {
+              
         // write individual numbers for pagination - set id to the position of the button and set the inner html to the button position+the paginationBarPosition
         paginationBarHTML += `
         <button class="paginationButton" id="${ordinalPosition}">${ordinalPosition + paginationBarPosition}</button>
@@ -102,13 +110,11 @@ const writePaginationBar = function() {
 // Disable current page button and disable first / previous if at page one and next / last buttons if  pageNumber === numberOfPages
 const setPaginationBarStatus = function () {
 
-    for (let index = 0; index < paginationButtonArray.length; index++) {
-        paginationButtonArray[index].disabled = parseInt(paginationButtonArray[index].innerHTML) === currentPage ? true : false
-    }
+    Array.from(paginationButtonArray).forEach(x => x.disabled = parseInt(x.innerHTML) === currentPage ? true : false)
 
-    Array.from(document.getElementsByClassName("backButton")).map(x => x.style.visibility = currentPage === 1 ? "hidden" : "visable")
+    Array.from(document.getElementsByClassName("backButton")).forEach(x => x.style.visibility = currentPage === 1 ? "hidden" : "visable")
     
-    Array.from(document.getElementsByClassName("forwardButton")).map(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visable")
+    Array.from(document.getElementsByClassName("forwardButton")).forEach(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visable")
 }
 
 const changePageNumber = function (event) {
@@ -134,11 +140,9 @@ const changePageNumber = function (event) {
 
 //Add event listeners to buttons
 const writeEventListeners = function () {
-    for (let j = 0; j < paginationButtonArray.length; j++) {
-        let pagButtonElement = paginationButtonArray[j];
-        pagButtonElement.addEventListener("click", changePageNumber, false);
-    }
-
+    Array.from(paginationButtonArray).forEach(x => {
+        x.addEventListener("click", changePageNumber, false)
+    })
 }
 
 window.onload = blogInit()

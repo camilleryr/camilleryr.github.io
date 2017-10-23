@@ -34,3 +34,10 @@ button:hover {
     background-color: #335766;
     color: white;
 }
+
+.tags {
+    border: solid 1px #335766;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 5px;
+}

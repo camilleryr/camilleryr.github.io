@@ -66,61 +66,71 @@ blogObjectGenerator(
 blogObjectGenerator(
     "Test Blog 1", 
     "2017-10-20",
-    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now"
+    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 2", 
     "2017-10-21",
-    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page"
+    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 3", 
     "2017-10-22",
-    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination"
+    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 4", 
     "2017-10-22",
-    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point"
+    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 5", 
     "2017-10-29",
-    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 "
+    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 ",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 6", 
     "2017-10-20",
-    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now"
+    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 7", 
     "2017-10-21",
-    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page"
+    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 8", 
     "2017-10-22",
-    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination"
+    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 9", 
     "2017-10-22",
-    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point"
+    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 10", 
     "2017-10-29",
-    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 "
+    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 ",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 blogObjectGenerator(
     "This is my first blog post", 
@@ -160,61 +170,71 @@ blogObjectGenerator(
 blogObjectGenerator(
     "Test Blog 1", 
     "2017-10-20",
-    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now"
+    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 2", 
     "2017-10-21",
-    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page"
+    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 3", 
     "2017-10-22",
-    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination"
+    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 4", 
     "2017-10-22",
-    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point"
+    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 5", 
     "2017-10-29",
-    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 "
+    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 ",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 6", 
     "2017-10-20",
-    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now"
+    "This is a test blog to fill out a bit of content.  I am filling this out more to see if that solves my styling issues... for now",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 7", 
     "2017-10-21",
-    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page"
+    "This is a second test blog to fill out a bit more additional content.  This is a nonsence sentince to put some shit on the page",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 8", 
     "2017-10-22",
-    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination"
+    "Continuing to add content to make it so that there are enough pages of blog entries to try out my pagination",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 9", 
     "2017-10-22",
-    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point"
+    "Its starting to get harder to fill up content with stuff that means nothing.  I guess I could write content that had substiance but that would be more taxing and I am not to concerned with anything in these blogs at this point",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 
 blogObjectGenerator(
     "Test Blog 10", 
     "2017-10-29",
-    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 "
+    "I am mostly just concerned with trying to create a pagination bar that is responsive.  I want it to only show the first 5 pages, then re-write the bar to have 2-6 or 3-7 ",
+    "Tag 1", "Tag 2", "Tag 3"
 )
 // template to generate blog object
 
