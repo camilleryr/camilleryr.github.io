@@ -1,32 +1,36 @@
-// inital delclarations
-
-// pulling blogDatabase from local storage
-
 // setting inital states
-let currentPage = 1
+let currentPage = NaN
 let numberOfItems = 2
-let numberOfPages = 0 //this will be set on load
-let paginationBarPosition = 0 //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
+let numberOfPages = NaN //this will be set on load
+let paginationBarPosition = NaN //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
 let paginationButtonArray = document.getElementsByClassName("paginationButton")
+let localStorageItem = []
 
-// sets number of pages and writes first page
+//Set blogs to display starting at most recent
+const blogInit = function (storageItem = blogDatabase) {
+    paginationBarPosition = 0
+    localStorageItem = storageItem
+    currentPage = 1
+
+    writeBlogs()
+}
 
 const writeBlogs = function() {
+    // sets number of pages
+    numberOfPages = Math.ceil(localStorageItem.length / numberOfItems)
 
-    let blogDatabaseParse = JSON.parse(localStorage.getItem("blogDatabaseStored")).reverse()
-    numberOfPages = Math.ceil(blogDatabaseParse.length / numberOfItems)
     //splices database into the currect section to be displayed on currentPage
-    let blogsToWrite = blogDatabaseParse.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems )
+    let blogsToWrite = localStorageItem.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems )
     
     // Declare variable that will write to html
     let currentPageHTML = ""
     
-    // Iterates over slice and ammends it to variable 
+    // Iterates over slice and ammends it to currentPageHTML variable 
    
     blogsToWrite.forEach (element => {
         let blogTags = ``
 
-        //Create spans for each tag to be injected into the HTML string oe each individual blog
+        //Create spans for each tag to be injected into the HTML string on each individual blog
         element.tags.forEach(tags => {
             blogTags += `
             <span class="tags">${tags}</span>
@@ -47,15 +51,13 @@ const writeBlogs = function() {
     // Write blogs to HTML
     document.getElementById("blogContent").innerHTML = currentPageHTML
     
-    //functions to check/write/add eventListeners to pagination bar
+    //functions to check/write pagination bar
     writePaginationBar()
 
 }
 
 const writePaginationBar = function() {
-
     //Keep current page button as the middle button unless it is one of the first or last two pages
-
     switch (true) {
         case (numberOfPages <= 5):
             paginationBarPosition = 0
@@ -71,19 +73,15 @@ const writePaginationBar = function() {
             break
     }
 
-    // variable that will write pagination bar
-    let paginationBarHTML = ""
-
-    //ammends variable with first and previous buttons
-    paginationBarHTML += `
+    // Save data to variable that will be written to innerHTML
+    let paginationBarHTML = `
         <button class = "backButton paginationButton" id="first">&lt;&lt;</button>
         <button class = "backButton paginationButton" id="previous">&lt;</button>
     `
 
     // write buttons for each page, but will not exceed 5
-    for (let ordinalPosition = 1; ordinalPosition <= numberOfPages; ordinalPosition++) {
-              
-        // write individual numbers for pagination - set id to the position of the button and set the inner html to the button position+the paginationBarPosition
+    for (let ordinalPosition = 1; ordinalPosition <= numberOfPages; ordinalPosition++) {           
+        // write individual numbers for pagination - set id to the position of the button and set the inner html to the button position + the paginationBarPosition
         paginationBarHTML += `
         <button class="paginationButton" id="${ordinalPosition}">${ordinalPosition + paginationBarPosition}</button>
         `
@@ -95,7 +93,7 @@ const writePaginationBar = function() {
 
     paginationBarHTML += `
         <button class = "forwardButton paginationButton" id="next">&gt;</button>
-        <button class = "forwardButton paginationButton" id="previous">&gt;&gt;</button>
+        <button class = "forwardButton paginationButton" id="last">&gt;&gt;</button>
     `
     // write pagination bar to HTML
 
@@ -115,24 +113,26 @@ const setPaginationBarStatus = function () {
 }
 
 document.getElementById("paginationBar").addEventListener("click", event => {
-    // change page number based on button pushed
-    switch(event.target.innerHTML) {
-        case "&lt;&lt;": 
-            currentPage = 1
-            break
-        case "&lt;": 
-            currentPage--
-            break
-        case "&gt;": 
-            currentPage++
-            break
-        case "&gt;&gt;": 
-            currentPage = numberOfPages
-            break
-        default:
-            currentPage = parseInt(event.target.innerHTML)
+    // change page number based on button pushed - do not trigger if button is disabled
+    if (event.target.disabled === false) {
+        switch(event.target.id) {
+            case "first": 
+                currentPage = 1
+                break
+            case "previous": 
+                currentPage--
+                break
+            case "next": 
+                currentPage++
+                break
+            case "last": 
+                currentPage = numberOfPages
+                break
+            default:
+                currentPage = parseInt(event.target.innerHTML)
+        }
     }
     writeBlogs()
 })
 
-window.onload = writeBlogs()
+window.onload = blogInit()

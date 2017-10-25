@@ -1,32 +1,25 @@
-// Blog Database Array
-const blogDatabase = []
+// Set initial condition of blogDatabase from localStorage or as an empty array
+const blogDatabase = JSON.parse(localStorage.getItem("blogDatabaseStored")) || []
 
-// Check local storage for unique id value and intialize at 0 if not present
-if (localStorage.getItem("blogId") === null) {
-    localStorage.setItem("blogId", JSON.stringify(0))
-}
-
-// Gernerator function to create unique ids
-const idGenerator = function* () {
-
-    let id = JSON.parse(localStorage.getItem("blogId"))
-
+// Gernerator function to create unique ids, pulls latestID value from blogDatabase and adds it to the generated number
+const idGenerator = function* (latestID) {
+    let id = 1
+    
     while(true) {
-        id++
-        localStorage.setItem("blogId", `${id}`)
-        yield id
+        yield latestID + id++
     }
 }
 
+// Pull highest id number from blogDatabase or set to 0
+let latestID = (blogDatabase[0] || { id : 0})
+
 // Generator function instance
-let blogIdFactory = idGenerator()
+let blogIdFactory = idGenerator(latestID.id)
 
 // factory function to creat blog objects and push them into database
-const blogObjectGenerator = function (blog) {
-    
-    let blogDatabase = JSON.parse(localStorage.getItem("blogDatabaseStored"))
+const blogObjectFactory  = function (blog) {
 
-    blogDatabase.push(
+    blogDatabase.unshift(
         Object.create(null, {
             "id": { value: blogIdFactory.next().value, enumerable: true },
             "title": { value: blog[0], enumerable: true },
@@ -43,11 +36,9 @@ const blogObjectGenerator = function (blog) {
 
 // Check local storage for blog database and initialize with hard coded blog entries
 
-if (localStorage.getItem("blogDatabaseStored") === null) {
-
-    localStorage.setItem("blogDatabaseStored", JSON.stringify([]))
+if (blogDatabase.length === 0) {
     
-    blogObjectGenerator(
+    blogObjectFactory (
         ["This is my first blog post", 
         "2017-10-05",
         "Chris Miller",
@@ -55,7 +46,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
         "First Blog, NSS, Check In"]
     )
 
-    blogObjectGenerator(
+    blogObjectFactory (
         ["Mid week 2 update", 
         "2017-10-11",
         "Chris Miller",
@@ -63,7 +54,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
         "JSON, Document Methods, NSS, Check In"]
     )
 
-    blogObjectGenerator(
+    blogObjectFactory (
         ["Jagged Ferrets FTW", 
         "2017-10-13",
         "Chris Miller",
@@ -71,7 +62,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
         "Flexbox, Modal Box, Toaster, CSS Sucks"]
     )
 
-    blogObjectGenerator(
+    blogObjectFactory (
         ["Confued Camels and Pagination", 
         "2017-10-18",
         "Chris Miller",
@@ -79,7 +70,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
         "Pagination, Javascript, Pivot, Group 2 Electric Boogaloo"]
     )
 
-    blogObjectGenerator(
+    blogObjectFactory (
         ["Getting Real, Real Fast", 
         "2017-10-19",
         "Chris Miller",
@@ -87,7 +78,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
         "Pagination Part Duex, Generators, Factories"]
     )
 
-    blogObjectGenerator(
+    blogObjectFactory (
         ["Looking ahead and falling behind", 
         "2017-10-24",
         "Chris Miller",
@@ -97,7 +88,7 @@ if (localStorage.getItem("blogDatabaseStored") === null) {
 
     // template to generate blog object
 
-    // blogObjectGenerator(
+    // blogObjectFactory (
     //     title, 
     //     date,
     //     author,
