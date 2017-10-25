@@ -1,0 +1,47 @@
+
+<head>
+    <link href="/css/layout.css" rel="stylesheet">
+    <link href="./css/blog.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="pageHeader"></header>
+    <main class="Site-content">
+        <div id="blogControls">
+            <div>
+                <button id="modal">Write Blog</button>
+            </div>
+            <div>
+                <input type="search" name="search" id="search" value="search">
+                <button id="modalSearch">Search</button>
+                <button id="searchClear">Clear</button>
+            </div>
+        </div>
+        <nav id="paginationBar"></nav>
+        <div class="javascriptContent" id="blogContent"></div>
+    </main>
+
+    <footer>
+        <p>&copy Chris Miller 2017</p>
+    </footer>
+
+    <div id="modalDiv">
+        <div id="modalWindow">
+            <form id="form">
+                <input type="author" name="author" id="author" value="Chris Miller"><br>
+                <input type="blogTite" name="blogTitle" id="blogTitle" value="Blog Title"><br>
+                <input type="date" name="date" id="date"><br>
+                <textarea name="content" id="content"></textarea><br>
+                <input type="tags" name="tags" id="tags" value="Tags - seperated by commas"><br>
+            </form>
+            <button id="publish">Publish</button>
+            <button id="closeModal">X</button>
+        </div>
+    </div>
+
+    <script src="/javascript/navFactory.js"></script>
+    <script src="/javascript/navController.js"></script>
+    <script src="./javascript/modal.js"></script>
+    <script src="./javascript/blogFactory.js"></script>
+    <script src="./javascript/blogPaginationController.js"></script>
+</body>
