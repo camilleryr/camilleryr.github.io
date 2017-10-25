@@ -1,6 +1,8 @@
 //Open Modal Windon
 document.getElementById("modal").addEventListener("click", event => {
     document.getElementById("modalDiv").style.display = "block"
+    
+    document.getElementById("form").reset()
 })
 
 //Close Modal Window with X in upper right hand corner

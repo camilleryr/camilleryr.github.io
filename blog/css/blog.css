@@ -20,6 +20,15 @@
     text-decoration: none;
 }
 
+.card {
+    width: 100%
+}
+
+h2 {
+    text-align: justify;
+    font-size: 1.2em;
+}
+
 button {
     padding: 5px 15px;
     margin: 2px;

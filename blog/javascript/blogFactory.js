@@ -86,6 +86,14 @@ if (blogDatabase.length === 0) {
         "#Nope, Glad to Have Tickets, Just this once, Never Again"]
     )
 
+    blogObjectFactory (
+        ["Searching, and sometimes finding", 
+        "2017-10-25",
+        "Chris Miller",
+        "Spent the day refining and refactoring the post and search functionality of my blog page - I have realized that I did not read the prompt well enough and missed a key element of one of the tickets.  Looks like that will be a problem for future me, as current me doenst have the energy to refactor that bit of code.<br><br>Steve showed us an example of some common practices in javascript as they relate to publishing blog articles, and I have been combing through my code to clean up a number of instance of unneccessary calls to localStorage",
+        "Its Getting Better All The Time, All about Blogs"]
+    )
+
     // template to generate blog object
 
     // blogObjectFactory (
