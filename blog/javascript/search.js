@@ -4,23 +4,26 @@ document.getElementById("searchClear").addEventListener("click", event => {
     blogInit()
 })
 
-// Pull blogs from storage, filter contents (non case sensitive), save to a new localStorage item - reasign the localStorageItem variable so that the writeBlog() function will use the filtered data to construct the blog list 
-document.getElementById("searchButton").addEventListener("click", event => {
+
+// Pull blogs from storage, filter contents (non case sensitive), save to a new localStorage item - reasign the localStorageItem variable so that the writeBlog() function will use the filtered data to construct the blog list -- Switched to keyup to do "live searching"
+document.getElementById("search").addEventListener("keyup", event => {
     let searchQuery = document.getElementById("search").value.toLowerCase()
+        if (searchQuery.length >= 3) {
 
-    //pull full list of blogs from local storage
-    let fullBlogArray = JSON.parse(localStorage.getItem("blogDatabaseStored"))
-    
-    //checks search field for at least 3 characters and creates new arraw that returns any object that includes the search query in the title or content
-    if (searchQuery.length < 3) {
-        alert("Need to enter more than 3 charachters")
-
-    } else {
-        let filteredBlogArray = fullBlogArray.filter (blog => {
-            return blog.title.toLowerCase().includes(searchQuery) || blog.content.toLowerCase().includes(searchQuery)
-        })
-
-        blogInit(filteredBlogArray)
-    }
+            let filteredBlogArray = blogDatabase.filter (blog => {
+                return blog.title.toLowerCase().includes(searchQuery) || blog.content.toLowerCase().includes(searchQuery)
+            })
+            
+            console.log(filteredBlogArray.length)
+            
+            if (filteredBlogArray.length === 0) {
+                document.getElementById("blogContent").innerHTML = "Search Returned No Results"
+            } else {
+                blogInit(filteredBlogArray)
+            }
+            
+        } else {
+            blogInit()
+        }
 
 })
