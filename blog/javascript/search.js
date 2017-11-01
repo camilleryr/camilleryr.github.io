@@ -4,6 +4,14 @@ document.getElementById("searchClear").addEventListener("click", event => {
     blogInit()
 })
 
+// Clear search bar when it is selected, and refill it with "Search Blogs" when it is not
+document.getElementById("search").addEventListener("focus", event => {
+    document.getElementById("search").value = ""
+})
+
+document.getElementById("search").addEventListener("blur", event => {
+    document.getElementById("search").value = "Search Blogs"
+})
 
 // Pull blogs from storage, filter contents (non case sensitive), save to a new localStorage item - reasign the localStorageItem variable so that the writeBlog() function will use the filtered data to construct the blog list -- Switched to keyup to do "live searching"
 document.getElementById("search").addEventListener("keyup", event => {
@@ -14,14 +22,12 @@ document.getElementById("search").addEventListener("keyup", event => {
                 return blog.title.toLowerCase().includes(searchQuery) || blog.content.toLowerCase().includes(searchQuery)
             })
             
-            console.log(filteredBlogArray.length)
-            
             if (filteredBlogArray.length === 0) {
-                document.getElementById("blogContent").innerHTML = "Search Returned No Results"
+                document.getElementById("blogContent").innerHTML = `<div id="searchFailure">Search Returned No Results</div>`
             } else {
                 blogInit(filteredBlogArray)
             }
-            
+
         } else {
             blogInit()
         }

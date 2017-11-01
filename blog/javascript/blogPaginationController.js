@@ -4,30 +4,36 @@ let numberOfItems = 2
 let numberOfPages = NaN //this will be set on load
 let paginationBarPosition = NaN //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
 let paginationButtonArray = document.getElementsByClassName("paginationButton")
-let localStorageItem = []
+let contentToPaginate = []
 
 //Set blogs to display starting at most recent
-const blogInit = function (storageItem = blogDatabase) {
+const blogInit = function (content = blogDatabase) {
+    // sets initial paginationBarPosition so onload it will display pages 1-5
     paginationBarPosition = 0
-    localStorageItem = storageItem
+    // sets the content to paginate to the argument passed in
+    contentToPaginate = content
+    // sets initial page to load
     currentPage = 1
-
+    // sets number of pages
+    numberOfPages = Math.ceil(contentToPaginate.length / numberOfItems)
+    
+    //functions to write content
     writeBlogs()
+    //functions to check/write pagination bar
+    setPaginationBarPosition()
 }
 
 const writeBlogs = function() {
-    // sets number of pages
-    numberOfPages = Math.ceil(localStorageItem.length / numberOfItems)
 
     //splices database into the currect section to be displayed on currentPage
-    let blogsToWrite = localStorageItem.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems )
+    let contentToWrite = contentToPaginate.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems )
     
     // Declare variable that will write to html
     let currentPageHTML = ""
     
     // Iterates over slice and ammends it to currentPageHTML variable 
    
-    blogsToWrite.forEach (element => {
+    contentToWrite.forEach (element => {
         let blogTags = ``
 
         //Create spans for each tag to be injected into the HTML string on each individual blog
@@ -50,13 +56,12 @@ const writeBlogs = function() {
     
     // Write blogs to HTML
     document.getElementById("blogContent").innerHTML = currentPageHTML
+    }
+
+const setPaginationBarPosition = function() {
+    // Define previous previousPaginationBarPosition to compare with current paginationBarPosition after the switch statement to determine if the pagination nav bar needs to be reconstructed
+    const previousPaginationBarPosition = paginationBarPosition
     
-    //functions to check/write pagination bar
-    writePaginationBar()
-
-}
-
-const writePaginationBar = function() {
     //Keep current page button as the middle button unless it is one of the first or last two pages
     switch (true) {
         case (numberOfPages <= 5):
@@ -72,9 +77,14 @@ const writePaginationBar = function() {
             paginationBarPosition = numberOfPages - 5
             break
     }
+    
+    writePaginationBar()
+}
 
-    // Save data to variable that will be written to innerHTML
-    let paginationBarHTML = `
+const writePaginationBar = function () {
+
+        // Save data to variable that will be written to innerHTML
+        let paginationBarHTML = `
         <button class = "backButton paginationButton" id="first">&lt;&lt;</button>
         <button class = "backButton paginationButton" id="previous">&lt;</button>
     `
@@ -98,18 +108,19 @@ const writePaginationBar = function() {
     // write pagination bar to HTML
 
     document.getElementById("paginationBar").innerHTML = paginationBarHTML
-
+    
     setPaginationBarStatus()
 }
+
 
 // Disable current page button and disable first / previous if at page one and next / last buttons if  pageNumber === numberOfPages
 const setPaginationBarStatus = function () {
 
     Array.from(paginationButtonArray).forEach(x => x.disabled = parseInt(x.innerHTML) === currentPage ? true : false)
 
-    Array.from(document.getElementsByClassName("backButton")).forEach(x => x.style.visibility = currentPage === 1 ? "hidden" : "visable")
+    Array.from(document.getElementsByClassName("backButton")).forEach(x => x.style.visibility = currentPage === 1 ? "hidden" : "visible")
     
-    Array.from(document.getElementsByClassName("forwardButton")).forEach(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visable")
+    Array.from(document.getElementsByClassName("forwardButton")).forEach(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visible")
 }
 
 document.getElementById("paginationBar").addEventListener("click", event => {
