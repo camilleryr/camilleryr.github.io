@@ -7,8 +7,33 @@
 <body>
     <header id="pageHeader"></header>
     <main class="Site-content">
+        <div id="blogControls">
+            <div>
+                <button id="modal">Create Project</button>
+            </div>
+            <div>
+                <input type="search" name="search" id="search" value="Search Projects">
+                <!-- <button id="searchButton">Search</button> -->
+                <button id="searchClear">Clear</button>
+            </div>
+        </div>
+        <nav id="paginationBar"></nav>
         <div class="javascriptContent" id="projectContent"></div>
     </main>
+
+        <div id="modalDiv">
+        <div id="modalWindow">
+            <form id="form">
+                <input type="title" name="title" id="title" value="Project Title" class="formField"><br>
+                <input type="date" name="date" id="date" class="formField"><br>
+                <input type="tech" name="tech" id="tech" value="Tech Used - Separated By Tags" class="formField"><br>
+                <input type="teammates" name="teammates" id="teammates" value="Teammates - Separated By Tags" class="formField"><br>
+                <input type="link" name="link" id="link" value="HTTP Link" class="formField">
+            </form>
+            <button id="publish">Publish</button>
+            <button id="closeModal">X</button>
+        </div>
+    </div>
 
     <footer>
         <p>&copy Chris Miller 2017</p></
@@ -16,6 +41,11 @@
 
     <script src="/javascript/navFactory.js"></script>
     <script src="/javascript/navController.js"></script>
+    <script src="/javascript/paginationNavController.js"></script> 
+    <script src="/javascript/paginationController.js"></script> 
     <script src="./javascript/projectsFactory.js"></script>
     <script src="./javascript/projectsController.js"></script>
+    <script src="/javascript/searchController.js"></script>
+    <script src="./javascript/modal.js"></script>
+    <script src="/javascript/modal.js"></script>
 </body>

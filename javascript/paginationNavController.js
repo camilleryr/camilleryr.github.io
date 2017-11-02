@@ -1,66 +1,6 @@
-// setting inital states
-let currentPage = NaN
-let numberOfItems = 2
-let numberOfPages = NaN //this will be set on load
-let paginationBarPosition = NaN //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
-let paginationButtonArray = document.getElementsByClassName("paginationButton")
-let contentToPaginate = []
-
-//Set blogs to display starting at most recent
-const blogInit = function (content = blogDatabase) {
-    // sets initial paginationBarPosition so onload it will display pages 1-5
-    paginationBarPosition = 0
-    // sets the content to paginate to the argument passed in
-    contentToPaginate = content
-    // sets initial page to load
-    currentPage = 1
-    // sets number of pages
-    numberOfPages = Math.ceil(contentToPaginate.length / numberOfItems)
-    
-    //functions to write content
-    writeBlogs()
-    //functions to check/write pagination bar
-    setPaginationBarPosition()
-}
-
-const writeBlogs = function() {
-
-    //splices database into the currect section to be displayed on currentPage
-    let contentToWrite = contentToPaginate.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems )
-    
-    // Declare variable that will write to html
-    let currentPageHTML = ""
-    
-    // Iterates over slice and ammends it to currentPageHTML variable 
-   
-    contentToWrite.forEach (element => {
-        let blogTags = ``
-
-        //Create spans for each tag to be injected into the HTML string on each individual blog
-        element.tags.forEach(tags => {
-            blogTags += `
-            <span class="tags">${tags}</span>
-            `
-        })
-        
-        //Create HTML string for each individual blog
-        currentPageHTML += `
-        <div class="card">
-        <h1>${element.id} : ${element.title}</h1>
-        <h2>${element.content}</h2>
-        <div id="blogTags">${blogTags}</div>
-        <h4>${element.author} - ${element.dateOfPublication}</h4>
-        </div>
-        `
-    })
-    
-    // Write blogs to HTML
-    document.getElementById("blogContent").innerHTML = currentPageHTML
-    }
-
 const setPaginationBarPosition = function() {
     // Define previous previousPaginationBarPosition to compare with current paginationBarPosition after the switch statement to determine if the pagination nav bar needs to be reconstructed
-    const previousPaginationBarPosition = paginationBarPosition
+    // const previousPaginationBarPosition = paginationBarPosition
     
     //Keep current page button as the middle button unless it is one of the first or last two pages
     switch (true) {
@@ -142,8 +82,6 @@ document.getElementById("paginationBar").addEventListener("click", event => {
             default:
                 currentPage = parseInt(event.target.innerHTML)
         }
+        spliceContent()
     }
-    writeBlogs()
 })
-
-window.onload = blogInit()

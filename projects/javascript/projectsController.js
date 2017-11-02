@@ -1,18 +1,38 @@
-// Call JSON object from localStorage - parse it - assign it to let
-let projectDatabaseParse = JSON.parse(localStorage.getItem("projectDatabaseStored"))
-
 // Output blogdata to html
-let projectElement = document.getElementById("projectContent")
+let writeElement = document.getElementById("projectContent")
 
-for (let i = 0; i < projectDatabaseParse.length; i++) {
-    let element = projectDatabaseParse[i];
+const writeContent = projectsToDisplay => {
 
-    projectElement.innerHTML += `
-    <article class="projectItem">
-        <h2>Project Name : ${element.name}</h2>
-        <h4>Completed on: ${element.dateCompleted}</h4>
-        <a href="${element.link}" target="_blank">Check it out</a>
-    </article>
-    `
-    
+    let currentPageHTML = ""
+
+    projectsToDisplay.forEach(project => {
+
+        let techTags = ``
+        project.techUsed.forEach(tag => {
+            techTags += `
+            <span class="tech">${tag}</span>
+            `
+        })
+        
+        let teammates = ``
+        project.teammates.forEach(tag => {
+            teammates += `
+            <span class="teammates">${tag}</span>
+            `
+        })
+        
+        currentPageHTML += `
+        <article class="projectItem">
+            <h2>Project Name : ${project.title}</h2>
+            <div class="techTags">${techTags}</div>
+            <div class="teammatesTags">${teammates}</div>
+            <h4>Completed on: ${project.dateCompleted}</h4>
+            <a href="${project.link}" target="_blank">Check it out</a>
+        </article>
+        `
+    })
+
+    writeElement.innerHTML = currentPageHTML
 }
+
+window.onload = onPageLoad(projectDatabase, 2)

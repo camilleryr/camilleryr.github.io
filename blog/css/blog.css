@@ -2,23 +2,6 @@
     background-color: #335766;
 }
 
-#blogControls {
-    display: flex;
-    justify-content: space-between;
-    padding : 20px 0;
-}
-
-#paginationBar ul {
-    list-style: none;
-}
-
-#paginationBar ul li {
-    display: inline-block;
-}
-
-#paginationBar ul li a {
-    text-decoration: none;
-}
 
 .card {
     width: 100%
@@ -29,77 +12,3 @@ h2 {
     font-size: 1.2em;
 }
 
-button {
-    padding: 5px 15px;
-    margin: 2px;
-    border-radius: 5px;
-    background-color: white;
-    border: none;
-    border: solid 1px #335766;
-}
-
-button:disabled {
-    background-color: #4e828d;
-    pointer-events: none;
-    color: white;
-    border: none;
-}
-
-button:hover {
-    background-color: #335766;
-    color: white;
-}
-
-.tags {
-    border: solid 1px #335766;
-    border-radius: 5px;
-    padding: 5px;
-    margin-right: 5px;
-}
-
-#modalDiv {
-    position: fixed;
-    display: none;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, .5);
-}
-
-#modalWindow {
-    position: fixed;
-    height: 70vh;
-    width: 70%;
-    top: 15vh;
-    left: 15%;
-    background-color: white;
-    padding: 20px;
-}
-
-#modalWindow input,
-#modalWindow textarea {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-#modalWindow textarea {
-    height: 200px;
-}
-
-#closeModal {
-    position: fixed;
-    top: 5vh;
-    right: 2%;
-    font-size: 1.2em;
-    background-color: rgba(0, 0, 0, .5);
-    color: white;
-}
-
-#closeModal:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: black
-}
-
-#searchFailure {
-    padding: 20px;
-    font-size: 2em;
-}

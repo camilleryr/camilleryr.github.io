@@ -1,7 +1,7 @@
 //Use clear button to revert back to full list of blog entries
 document.getElementById("searchClear").addEventListener("click", event => {
     document.getElementById("search").value = "Search Field"
-    blogInit()
+    initializePagination(originalContent)
 })
 
 // Clear search bar when it is selected, and refill it with "Search Blogs" when it is not
@@ -14,22 +14,32 @@ document.getElementById("search").addEventListener("blur", event => {
 })
 
 // Pull blogs from storage, filter contents (non case sensitive), save to a new localStorage item - reasign the localStorageItem variable so that the writeBlog() function will use the filtered data to construct the blog list -- Switched to keyup to do "live searching"
+
 document.getElementById("search").addEventListener("keyup", event => {
     let searchQuery = document.getElementById("search").value.toLowerCase()
         if (searchQuery.length >= 3) {
 
-            let filteredBlogArray = blogDatabase.filter (blog => {
-                return blog.title.toLowerCase().includes(searchQuery) || blog.content.toLowerCase().includes(searchQuery)
-            })
+            let filteredContentArray = []
             
-            if (filteredBlogArray.length === 0) {
-                document.getElementById("blogContent").innerHTML = `<div id="searchFailure">Search Returned No Results</div>`
+            contentToPaginate.forEach( element => {
+                let elementString = ''
+                for (let i in element) { 
+                    elementString += element[i].toString().toLowerCase() + ' '
+                }
+                
+                if (elementString.includes(searchQuery)) {
+                    filteredContentArray.push(element)
+                }
+            })
+
+            if (filteredContentArray.length === 0) {
+                writeElement.innerHTML = `<div id="searchFailure">Search Returned No Results</div>`
             } else {
-                blogInit(filteredBlogArray)
+                initializePagination(filteredContentArray)
             }
 
         } else {
-            blogInit()
+            initializePagination(originalContent)
         }
 
 })
