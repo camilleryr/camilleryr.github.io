@@ -1,8 +1,8 @@
-const setPaginationBarPosition = function() {
+const setPaginationBarPosition = function () {
     // Define previous previousPaginationBarPosition to compare with current paginationBarPosition after the switch statement to determine if the pagination nav bar needs to be reconstructed
     // const previousPaginationBarPosition = paginationBarPosition
-    
-    //Keep current page button as the middle button unless it is one of the first or last two pages
+
+    // Keep current page button as the middle button unless it is one of the first or last two pages
     switch (true) {
         case (numberOfPages <= 5):
             paginationBarPosition = 0
@@ -17,26 +17,25 @@ const setPaginationBarPosition = function() {
             paginationBarPosition = numberOfPages - 5
             break
     }
-    
+
     writePaginationBar()
 }
 
 const writePaginationBar = function () {
-
-        // Save data to variable that will be written to innerHTML
-        let paginationBarHTML = `
+    // Save data to variable that will be written to innerHTML
+    let paginationBarHTML = `
         <button class = "backButton paginationButton" id="first">&lt;&lt;</button>
         <button class = "backButton paginationButton" id="previous">&lt;</button>
     `
 
     // write buttons for each page, but will not exceed 5
-    for (let ordinalPosition = 1; ordinalPosition <= numberOfPages; ordinalPosition++) {           
+    for (let ordinalPosition = 1; ordinalPosition <= numberOfPages; ordinalPosition++) {
         // write individual numbers for pagination - set id to the position of the button and set the inner html to the button position + the paginationBarPosition
         paginationBarHTML += `
         <button class="paginationButton" id="${ordinalPosition}">${ordinalPosition + paginationBarPosition}</button>
         `
         // break loop after witing 5 buttons
-        if (ordinalPosition >= 5){
+        if (ordinalPosition >= 5) {
             break
         }
     }
@@ -47,36 +46,34 @@ const writePaginationBar = function () {
     `
     // write pagination bar to HTML
 
-    document.getElementById("paginationBar").innerHTML = paginationBarHTML
-    
+    document.getElementById('paginationBar').innerHTML = paginationBarHTML
+
     setPaginationBarStatus()
 }
 
-
 // Disable current page button and disable first / previous if at page one and next / last buttons if  pageNumber === numberOfPages
 const setPaginationBarStatus = function () {
+    Array.from(paginationButtonArray).forEach(x => { x.disabled = parseInt(x.innerHTML) === currentPage })
 
-    Array.from(paginationButtonArray).forEach(x => x.disabled = parseInt(x.innerHTML) === currentPage ? true : false)
+    Array.from(document.getElementsByClassName('backButton')).forEach(x => { x.style.visibility = currentPage === 1 ? 'hidden' : 'visible' })
 
-    Array.from(document.getElementsByClassName("backButton")).forEach(x => x.style.visibility = currentPage === 1 ? "hidden" : "visible")
-    
-    Array.from(document.getElementsByClassName("forwardButton")).forEach(x => x.style.visibility = currentPage === numberOfPages ? "hidden" : "visible")
+    Array.from(document.getElementsByClassName('forwardButton')).forEach(x => { x.style.visibility = currentPage === numberOfPages ? 'hidden' : 'visible' })
 }
 
-document.getElementById("paginationBar").addEventListener("click", event => {
+document.getElementById('paginationBar').addEventListener('click', event => {
     // change page number based on button pushed - do not trigger if button is disabled
     if (event.target.disabled === false) {
-        switch(event.target.id) {
-            case "first": 
+        switch (event.target.id) {
+            case 'first':
                 currentPage = 1
                 break
-            case "previous": 
+            case 'previous':
                 currentPage--
                 break
-            case "next": 
+            case 'next':
                 currentPage++
                 break
-            case "last": 
+            case 'last':
                 currentPage = numberOfPages
                 break
             default:

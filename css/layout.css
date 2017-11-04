@@ -1,5 +1,13 @@
 /* Fonts */
 
+#logon {
+    order: 5;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 @font-face {
     font-family: Poiret;
     src: url(/fonts/PoiretOne-Regular.ttf);

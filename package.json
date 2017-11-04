@@ -1,0 +1,37 @@
+{
+  "name": "camilleryr.github.io",
+  "version": "1.0.0",
+  "description": "Chris Miller's NSS Personal Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camilleryr/camilleryr.github.io.git"
+  },
+  "author": "Chris Miller <camiller.yr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camilleryr/camilleryr.github.io/issues"
+  },
+  "homepage": "https://github.com/camilleryr/camilleryr.github.io#readme",
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-grunt": "^1.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-watch": "^1.0.0",
+    "gruntify-eslint": "^4.0.0",
+    "install": "^0.10.1",
+    "npm": "^5.5.1",
+    "uglify-es": "^3.1.6"
+  },
+  "dependencies": {
+    "uninstall": "0.0.0"
+  }
+}

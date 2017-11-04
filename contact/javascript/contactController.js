@@ -1,10 +1,10 @@
-let contactDatabaseParsed = JSON.parse(localStorage.getItem("contactDatabaseStored"))
+let contactDatabaseParsed = JSON.parse(localStorage.getItem('contactDatabaseStored'))
 
-let contactElement = document.getElementById("contactContent")
+let contactElement = document.getElementById('contactContent')
 
 for (let index = 0; index < contactDatabaseParsed.length; index++) {
     let element = contactDatabaseParsed[index]
-    let contactItemClass = index%2
+    let contactItemClass = index % 2
     contactElement.innerHTML += `
     <article class="contactItem contactItem${contactItemClass}" id="${element.service}">
         <img src="${element.icon}" class="contactIcon">

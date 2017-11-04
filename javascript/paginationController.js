@@ -1,14 +1,14 @@
 // variables to be set on initialization
-let numberOfItems //numer of items to display per page
-let numberOfPages  //numer of pages needed to paginate all content
-let contentToPaginate //variable for content
-let paginationBarPosition //use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
-let currentPage //current pagination page position
-let originalContent //current pagination page position
-//designation html node to write pagination bar to
-let paginationButtonArray = document.getElementsByClassName("paginationButton")
+let numberOfItems // numer of items to display per page
+let numberOfPages // numer of pages needed to paginate all content
+let contentToPaginate // variable for content
+let paginationBarPosition // use this number to increment pagination bar (1-5) (2-6) (3-7) etc.
+let currentPage // current pagination page position
+let originalContent // current pagination page position
+// designation html node to write pagination bar to
+let paginationButtonArray = document.getElementsByClassName('paginationButton')
 
-//Set blogs to display starting at most recent
+// Set blogs to display starting at most recent
 
 const onPageLoad = (content, itemsPerPage = 2) => {
     // sets original content to display after removing search query
@@ -28,13 +28,11 @@ const initializePagination = (content = originalContent) => {
     currentPage = 1
     // sets number of pages
     numberOfPages = Math.ceil(contentToPaginate.length / numberOfItems)
-    
+
     spliceContent()
 }
 
 const spliceContent = () => {
-    writeContent (contentToPaginate.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems ))
-    setPaginationBarPosition ()
+    writeContent(contentToPaginate.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems))
+    setPaginationBarPosition()
 }
-
-

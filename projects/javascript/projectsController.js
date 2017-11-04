@@ -1,26 +1,24 @@
 // Output blogdata to html
-let writeElement = document.getElementById("projectContent")
+let writeElement = document.getElementById('projectContent')
 
 const writeContent = projectsToDisplay => {
-
-    let currentPageHTML = ""
+    let currentPageHTML = ''
 
     projectsToDisplay.forEach(project => {
-
         let techTags = ``
         project.techUsed.forEach(tag => {
             techTags += `
             <span class="tech">${tag}</span>
             `
         })
-        
+
         let teammates = ``
         project.teammates.forEach(tag => {
             teammates += `
             <span class="teammates">${tag}</span>
             `
         })
-        
+
         currentPageHTML += `
         <article class="projectItem">
             <h2>Project Name : ${project.title}</h2>

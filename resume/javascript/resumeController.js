@@ -1,10 +1,10 @@
-let resumeDatabaseParsed = JSON.parse(localStorage.getItem("resumeStored"))
+let resumeDatabaseParsed = JSON.parse(localStorage.getItem('resumeStored'))
 
-let resumeElement = document.getElementById("resumeContent")
+let resumeElement = document.getElementById('resumeContent')
 
 for (let index = 0; index < resumeDatabaseParsed.length; index++) {
     let element = resumeDatabaseParsed[index]
-    
+
     resumeElement.innerHTML += `
     <article class="resumeItem" id="resume${index}"></article>
     `
@@ -22,4 +22,3 @@ for (let index = 0; index < resumeDatabaseParsed.length; index++) {
         `
     }
 }
-    
