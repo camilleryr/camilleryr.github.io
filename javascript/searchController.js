@@ -21,12 +21,7 @@ document.getElementById('search').addEventListener('keyup', event => {
         let filteredContentArray = []
 
         contentToPaginate.forEach(element => {
-            let elementString = ''
-            for (let i in element) {
-                elementString += element[i].toString().toLowerCase() + ' '
-            }
-
-            if (elementString.includes(searchQuery)) {
+            if (element.title.toLowerCase().includes(searchQuery) || element.content.toLowerCase().includes(searchQuery)) {
                 filteredContentArray.push(element)
             }
         })
