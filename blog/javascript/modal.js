@@ -1,7 +1,15 @@
 // Listen to click event on publish button - create an array of input fields, pass it to blog generator - reload page page one of blogs
-document.getElementById('publish').addEventListener('click', event => {
+
+defaultValueObject = {
+    'title': 'Blog Title',
+    'author': 'Chris Miller',
+    'tags': 'Blog Tags - Separated By Tags',
+    'content': 'Blog Contents'
+}
+
+const publish = () => {
     blogDatabase.unshift(blogObjectFactory([
-        document.getElementById('blogTitle').value,
+        document.getElementById('title').value,
         document.getElementById('date').value,
         document.getElementById('author').value,
         document.getElementById('content').value,
@@ -9,5 +17,8 @@ document.getElementById('publish').addEventListener('click', event => {
     ]))
 
     localStorage.setItem('blogDatabaseStored', JSON.stringify(blogDatabase))
+    onPageLoad(blogDatabase)
     document.getElementById('modalDiv').style.display = 'none'
-})
+}
+
+listContents(blogDatabase)

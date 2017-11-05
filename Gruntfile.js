@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ['./javascript/*.js', './blog/javascript/*.js', './resume/javascript/*.js', './contact/javascript/*.js', './projects/javascript/*.js'],
-                tasks: ['eslint', 'uglify'],
+                tasks: ['eslint'],
                 options: {
                     spawn: false
                 }
@@ -65,5 +65,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('gruntify-eslint')
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'watch', 'eslint'])
+    grunt.registerTask('default', ['watch', 'eslint'])
 }

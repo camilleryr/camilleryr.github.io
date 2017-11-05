@@ -29,16 +29,21 @@
         <div id="modalWindow">
             <form id="form">
                 <input type="author" name="author" id="author" value="Chris Miller" class="formField"><br>
-                <input type="blogTite" name="blogTitle" id="blogTitle" value="Blog Title" class="formField"><br>
+                <input type="blogTite" name="blogTitle" id="title" value="Blog Title" class="formField"><br>
                 <input type="date" name="date" id="date" class="formField"><br>
-                <textarea name="content" id="content" class="formField"></textarea><br>
+                <textarea name="content" id="content" class="formField" value="Blog Contents"></textarea><br>
                 <input type="tags" name="tags" id="tags" value="Blog Tags - Separated By Tags" class="formField"><br>
             </form>
-            <button id="publish">Publish</button>
+            <div class='modal__publishEdit'>
+                <button class='' id="publish">Publish</button>
+                <button class='hidden' id="saveChanges">Save Changes</button>
+            </div>
             <button id="closeModal">X</button>
+            <section class="modal__listContents">
+            </section>
         </div>
     </div>
-
+    
     <script src="/javascript/navFactory.js"></script>
     <script src="/javascript/navController.js"></script>
     <script src="/javascript/searchController.js"></script>
@@ -46,6 +51,9 @@
     <script src="/javascript/paginationController.js"></script>
     <script src="./javascript/blogFactory.js"></script>
     <script src="./javascript/blogController.js"></script>
+    <script src="/javascript/listContents.js"></script>
+    <script src="/javascript/edit.js"></script>
+    <script src="/javascript/delete.js"></script>
     <script src="./javascript/modal.js"></script>
     <script src="/javascript/modal.js"></script>
 </body>

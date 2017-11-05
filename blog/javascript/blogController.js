@@ -9,28 +9,30 @@ const writeContent = blogArticlesToDisplay => {
     // Iterates over slice and ammends it to currentPageHTML variable
     blogArticlesToDisplay.forEach(element => {
         // Create spans for each tag to be injected into the HTML string on each individual blog
-        let blogTags = ``
-        element.tags.forEach(tag => {
-            blogTags += `
-            <span class='tags'>${tag}</span>
-            `
-        })
+        if (element.show) {
+            let blogTags = ``
+            element.tags.forEach(tag => {
+                blogTags += `
+                <span class='tags'>${tag}</span>
+                `
+            })
 
-        // Create HTML string for each individual blog
-        currentPageHTML += `
-        <div class='card'>
-        <h1>${element.id} : ${element.title}</h1>
-        <h2>${element.content}</h2>
-        <div id='blogTags'>${blogTags}</div>
-        <h4>${element.author} - ${element.dateOfPublication}</h4>
-        </div>
-        `
+            // Create HTML string for each individual blog
+            currentPageHTML += `
+            <div class='card'>
+            <h1>${element.id} : ${element.title}</h1>
+            <h2>${element.content}</h2>
+            <div id='blogTags'>${blogTags}</div>
+            <h4>${element.author} - ${element.date}</h4>
+            </div>
+            `
+        }
     })
 
     // Write blogs to HTML
     writeElement.innerHTML = currentPageHTML
 }
 
-window.onload = onPageLoad(blogDatabase, 3)
+window.onload = onPageLoad(blogDatabase, 'blogDatabaseStored', 3)
 
 // test

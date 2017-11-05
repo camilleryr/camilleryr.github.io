@@ -25,14 +25,22 @@
         <div id="modalWindow">
             <form id="form">
                 <input type="title" name="title" id="title" value="Project Title" class="formField"><br>
+                <textarea name="content" id="content" class="formField" value="Project Description"></textarea><br>
                 <input type="date" name="date" id="date" class="formField"><br>
-                <input type="tech" name="tech" id="tech" value="Tech Used - Separated By Tags" class="formField"><br>
+                <input type="tech" name="tech" id="techUsed" value="Tech Used - Separated By Commas" class="formField"><br>
                 <input type="teammates" name="teammates" id="teammates" value="Teammates - Separated By Tags" class="formField"><br>
                 <input type="link" name="link" id="link" value="HTTP Link" class="formField">
             </form>
-            <button id="publish">Publish</button>
+            <div class='modal__publishEdit'>
+                    <button id="publish">Publish</button>
+                    <button id="saveChanges">Save Changes</button>
+            </div>
             <button id="closeModal">X</button>
+            <section class="modal__listContents">
+                </section>
         </div>
+        <section class="modal__listContents">
+        </section>
     </div>
 
     <footer>
@@ -46,6 +54,9 @@
     <script src="./javascript/projectsFactory.js"></script>
     <script src="./javascript/projectsController.js"></script>
     <script src="/javascript/searchController.js"></script>
+    <script src="/javascript/edit.js"></script>
+    <script src="/javascript/delete.js"></script>
+    <script src="/javascript/listContents.js"></script>
     <script src="./javascript/modal.js"></script>
     <script src="/javascript/modal.js"></script>
 </body>

@@ -21,10 +21,11 @@ const blogObjectFactory = blog =>
     Object.create(null, {
         'id': { value: blogIdFactory.next().value, enumerable: true },
         'title': { value: blog[0], enumerable: true },
-        'dateOfPublication': { value: blog[1], enumerable: true },
+        'date': { value: blog[1], enumerable: true },
         'content': { value: blog[3], enumerable: true },
         'author': { value: blog[2], enumerable: true },
-        'tags': { value: blog[4].split(', '), enumerable: true }
+        'tags': { value: blog[4].split(', '), enumerable: true },
+        'show': { value: true, enumerable: true }
     })
 
 // Check local storage for blog database and initialize with hard coded blog entries

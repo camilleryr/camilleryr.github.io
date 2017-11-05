@@ -140,6 +140,7 @@ button:hover {
     left: 15%;
     background-color: white;
     padding: 20px;
+    overflow: scroll;
 }
 
 #modalWindow input,
@@ -150,6 +151,30 @@ button:hover {
 
 #modalWindow textarea {
     height: 200px;
+}
+
+.modal__listContents article {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.modal__listContents article h2{
+    font-size: 1.5em;
+    margin-bottom: -10;
+}
+
+.modal__publishEdit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 #closeModal {
