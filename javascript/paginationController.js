@@ -30,12 +30,14 @@ const initializePagination = (content = originalContent) => {
     // sets initial page to load
     currentPage = 1
     // sets number of pages
-    numberOfPages = Math.ceil(contentToPaginate.length / numberOfItems)
+    numberOfPages = Math.ceil(contentToPaginate.filter(element => element.show).length / numberOfItems)
 
     spliceContent()
 }
 
 const spliceContent = () => {
-    writeContent(contentToPaginate.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems))
+    // Custom splice function to skip objects with property of show === false
+    let spliceArray = contentToPaginate.filter(element => element.show)
+    writeContent(spliceArray.slice((currentPage - 1) * numberOfItems, currentPage * numberOfItems))
     setPaginationBarPosition()
 }
